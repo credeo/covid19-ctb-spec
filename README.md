@@ -1,6 +1,6 @@
 # COVID-19 Contact Tracing Backend Specification
 
-> This specification is featured in [eded](https://ccc) and published as early draft version and will be subject to Subject to modification and extension. Please consider it as invitiation to conversation
+> This specification is featured in [COVID-19 Tracker Apps and Apple Google Contact Tracing API - The need for interoperability and standardisation](https://medium.com/@kristijan.cvetkovic/covid-19-tracker-apps-and-apple-google-contact-tracing-api-ed9983ea049a) and published as early draft version and will be subject to Subject to modification and extension. Please consider it as invitiation to conversation
 
 ## Design Goals
 
