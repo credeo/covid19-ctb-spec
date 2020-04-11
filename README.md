@@ -15,6 +15,16 @@ The main goal of this specification is to assist COVID-19 Tracking apps which ar
 - What data needs to be stored in the cloud beside the diagnosis keys?
 - How can apps of different developers share diagnosis keys?
 
+## Privacy and security
+
+A key consideration is the privacy of users and to prevent fraud and prankster pushes. The proposed Contact Tracing Backend does not store any user-related data besides the user's diagnosis keys grouped by their geolocation reduced to a 3 character geohash. The Contact Tracing API itself does not provide any geolocation information. It will be up to the specific app to publish the diagnosis keys with a geohash during submission or to group the diagnosis keys by different geohashes based on the historical GPS trace of the user.
+
+Other apps could pull diagnosis keys of regions users have been to based on their historical GPS trace and invoke the matching on the Contact Tracing API with the recently pulled diagnosis keys.
+
+A key security feature is the signed health authority one time token (SOTT). SOTT are issued by Health authorities and signed by their private key. A SOTT can be valid for one or more Contact Tracing Backend Provider. It's assumed that HA uses an onboarding API to register their public key.
+
+An important question is, if published data needs to be protected. The take of the proposed solution is, that diagnosis keys shall be available as open data to the community to support scientific and open data studies during the pandemic.
+
 ## Actors
 
 The main actors in the context of this specification are:
