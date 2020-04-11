@@ -1,0 +1,9 @@
+type Mutation {
+  push(keys:[String], token:TokenInput!, geohash:String, daynumber: Int) : Boolean
+}
+
+input TokenInput {
+  token: String,
+  signature: String,
+  haId: ID!
+}

@@ -1,0 +1,30 @@
+type Query {
+  keys(geohash: String!, daynumber:Int, first:Int, after:ID) : KeysResult
+  provider: Provider
+}
+
+type KeysResult {
+  keys:[Key]
+  cursor:ID!
+}
+
+type Key {
+  id: ID!
+  hex: String!
+  geohash: String!
+  daynumber: Int
+  signature: String  
+}
+
+type Provider {
+  id: ID!
+  keyChain: [PublicKey]
+  web: String
+}
+
+type PublicKey {
+  id: ID!
+  pem: String
+  validFrom: Int
+  replacedBy: PublicKey
+}

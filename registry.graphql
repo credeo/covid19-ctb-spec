@@ -1,0 +1,52 @@
+type Mutation {
+  register(endpoint: String!, pem:String!, contact:ContactInput!): Provider
+}
+
+type ContactInput {
+  email: String
+  web: String
+  phone: String
+  street: String
+  zip: String
+  city: String
+  country: String
+  name: String
+}
+
+type Query {
+  providers:[Provider]
+}
+
+type Provider {
+  id: ID!
+  status: Status
+  contact: Contact
+  keyChain: [PublicKey]
+  endpoint: String
+}
+
+type Contact {
+  email: String
+  web: String
+  phone: String
+  street: String
+  zip: String
+  city: String
+  country: String
+  name: String
+}
+
+type PublicKey {
+  id: ID!
+  pem: String
+  validFrom: Int
+  replacedBy: PublicKey
+}
+
+enum Status {
+  NEW
+  INAPPROVAL
+  ENROLLED
+  CANCELED
+  SUSPENDED
+}

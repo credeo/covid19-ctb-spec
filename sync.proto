@@ -1,0 +1,21 @@
+syntax = "proto2";
+package covid19.ctb.sync;
+
+message Signature {
+  required String providerId = 1; // provider ID as issued by CTB Registry
+  required uint32 daynumber = 2; // Day number
+  required uint32 signature = 3; // Signature for Sync message of day
+}
+
+message Sync {
+  required uint32 timestamp = 1; // Date of creation as seconds since 1.1.1970
+  required uint64 etag = 2; // Etag
+  required String providerId = 3; // provider ID as issued by CTB Registry
+  repeated Key keys = 4; // list of keys
+}
+
+message Key {
+  required String geohash = 1; // Geohash reduced to 3 characters
+  required uint32 daynumber = 2; // Day number according to https://www.blog.google/documents/56/Contact_Tracing_-_Cryptography_Specification.pdf
+  required uint64 key = 3; // Daily Tracing Key aka Diagnosis Key
+}

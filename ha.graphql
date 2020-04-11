@@ -1,0 +1,21 @@
+type Mutation {
+  changePublicKey(haId: ID!, pem:String!): [PublicKey]
+}
+
+type Query {
+  ha(id:ID!): HA
+  has: [HA]
+}
+
+type PublicKey {
+  id: ID!
+  pem: String
+  validFrom: Int
+  replacedBy: PublicKey
+}
+
+type HA {
+  id: ID!
+  web: String
+  keyChain:[PublicKey]
+}
